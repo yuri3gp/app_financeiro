@@ -30,11 +30,6 @@ function CalculadoraJurosCompostos() {
   const [periodoAnos, setPeriodoAnos] = useState<number | ''>(0);
   const [aporteMensal, setAporteMensal] = useState<number | ''>(0);
   const [valorFinal, setValorFinal] = useState<number>(0);
-
-  useEffect(() => {
-    calcularJurosCompostos();
-  }, [valorInicial, taxaJurosAnual, periodoAnos, aporteMensal]);
-
   const calcularJurosCompostos = () => {
     const taxaJurosMensal = (1 + Number(taxaJurosAnual) / 100) ** (1 / 12) - 1;
     const periodoMeses = Number(periodoAnos) * 12;
@@ -48,6 +43,10 @@ function CalculadoraJurosCompostos() {
 
     setValorFinal(valorInvestido);
   };
+
+  useEffect(() => {
+    calcularJurosCompostos();
+  }, [valorInicial, taxaJurosAnual, periodoAnos, aporteMensal]);
 
   const formatarValorFinal = (valor: number) => {
     return valor.toLocaleString('pt-BR', {
