@@ -6,7 +6,8 @@ const Container = styled.div`
 `;
 
 const Heading = styled.h2`
-  color: red;
+  color: black;
+  font-family: 'Courier New', Courier, monospace;
 `;
 
 const Label = styled.label`
